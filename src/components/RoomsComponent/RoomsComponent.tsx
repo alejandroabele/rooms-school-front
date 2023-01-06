@@ -103,14 +103,15 @@ const RoomsComponent = ({ data, handleDelete, handleCreate, handleEdit }) => {
                     </TableBody>
                 </Table>
             </TableContainer>
-            <Fab color="primary" onClick={handleNewRoom
-            } sx={{
-                position: 'absolute',
-                bottom: 16,
-                right: 16,
-            }} aria-label="add">
-                <AddIcon />
-            </Fab>
+            {getRole() === 'admin' && (
+                <Fab color="primary" onClick={handleNewRoom
+                } sx={{
+                    position: 'absolute',
+                    bottom: 16,
+                    right: 16,
+                }} aria-label="add">
+                    <AddIcon />
+                </Fab>)}
         </>)
 }
 

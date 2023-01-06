@@ -1,11 +1,10 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
-
 import Paper from '@mui/material/Paper';
 import { Button, Typography } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -23,10 +22,6 @@ import { useAuthContext } from '../../context/AuthProvider'
 export default function BasicTable({ data, handleDelete, handleCreate, handleEdit, rooms }) {
     const navigate = useNavigate()
     const { getRole } = useAuthContext()
-    useEffect(() => {
-        console.log(getRole())
-    }, [])
-
     const [openDelete, setOpenDelete] = useState(false)
     const [idSelected, setIdSelected] = useState(null)
     const [currentStudent, setCurrentStudent] = useState(null)
@@ -121,14 +116,15 @@ export default function BasicTable({ data, handleDelete, handleCreate, handleEdi
                     </TableBody>
                 </Table>
             </TableContainer>
-            <Fab color="primary" onClick={handleNewStudent
-            } sx={{
-                position: 'absolute',
-                bottom: 16,
-                right: 16,
-            }} aria-label="add">
-                <AddIcon />
-            </Fab>
+            {getRole() === 'admin' && (
+                <Fab color="primary" onClick={handleNewStudent
+                } sx={{
+                    position: 'absolute',
+                    bottom: 16,
+                    right: 16,
+                }} aria-label="add">
+                    <AddIcon />
+                </Fab>)}
         </>
     );
 }

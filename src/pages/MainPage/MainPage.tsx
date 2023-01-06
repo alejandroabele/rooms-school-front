@@ -1,5 +1,5 @@
 
-import { Typography, Box } from '@mui/material';
+import { Typography, Box, Link } from '@mui/material';
 const MainPage = () => {
 
     return (
@@ -13,6 +13,12 @@ const MainPage = () => {
                     The persistence of the data is stored in a mysql database.
                     Inside the Readme.md file you can find the instructions to develop on.
                 </Typography>
+
+                <Link href="https://github.com/alejandroabele/rooms-school-front" target="_blank" >
+                    <Typography variant='overline' align="left">
+                        Gitlab Frontend
+                    </Typography>
+                </Link>
             </Box>
         </>
     )
