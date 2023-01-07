@@ -18,13 +18,20 @@ const AuthContextProvider = ({ children }: AuthContextProviderProps): ReactEleme
     const navigate = useNavigate();
 
     const login = async (username: string, password: string) => {
-        loginService({ username, password }).then(
-            (r: any) => {
-                localStorage.setItem('token', r.payload.token)
-                setHeader(r.payload.token)
+        try {
+            const data = await loginService({ username, password })
+            console.log(data)
+            if (data) {
+                localStorage.setItem('token', data.payload.token)
+                setHeader(data.payload.token)
                 navigate("/")
             }
-        ).catch()
+            return data;
+        } catch (error) {
+            console.log(error)
+            throw error;
+        }
+
 
     }
     const getTokenAuth = () => {

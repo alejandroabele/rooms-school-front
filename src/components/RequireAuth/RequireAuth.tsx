@@ -1,10 +1,10 @@
+import { useAuthContext } from '../../context/AuthProvider';
 import { setHeader } from '../../utils/token'
 import {
     useLocation,
     Navigate
 } from "react-router-dom";
-import { useAuthContext } from '../../context/AuthProvider'
-const RequireAuth = ({ children, role }: { children: JSX.Element }) => {
+const RequireAuth = ({ children, role }: { children: JSX.Element, role?: String[] }) => {
     let auth = useAuthContext();
     let location = useLocation();
     if (!auth.getTokenAuth()) {

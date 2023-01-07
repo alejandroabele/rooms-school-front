@@ -3,32 +3,32 @@ import { roomsPath, roomsByIdPath } from "../constants/backendUrl";
 const getRoomService = async () => {
   let response = [];
   try {
-    response = await get(roomsPath());
-    response = response.payload;
+    const res = await get(roomsPath());
+    response = res.payload;
   } catch (error) {}
   return response;
 };
 const deleteRoomService = async (id: string) => {
   let response = [];
   try {
-    response = await destroy(roomsByIdPath(id));
-    response = response.payload;
+    const res = await destroy(roomsByIdPath(id));
+    response = res.payload;
   } catch (error) {}
   return response;
 };
-const createRoomService = async (data) => {
+const createRoomService = async (data: any) => {
   let response = [];
   try {
-    response = await post(roomsPath(), data);
-    response = response.payload;
+    const res = await post(roomsPath(), data);
+    response = res.payload;
   } catch (error) {}
   return response;
 };
-const editRoomService = async (data) => {
+const editRoomService = async (data: any) => {
   let response = [];
   try {
-    response = await put(roomsByIdPath(data.id), data);
-    response = response.payload;
+    const res = await put(roomsByIdPath(data.id), data);
+    response = res.payload;
   } catch (error) {}
   return response;
 };

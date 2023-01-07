@@ -8,7 +8,7 @@ const genders = {
 import { parseToLocalFormat } from '../../utils/date'
 import CakeIcon from '@mui/icons-material/Cake';
 import TransgenderIcon from '@mui/icons-material/Transgender';
-const CardProfile = ({ data }) => {
+const CardProfile = ({ data }: any) => {
     return (
         <Card sx={{ margin: 2, padding: 2 }}>
             <CardHeader title={'Personal Information'}>

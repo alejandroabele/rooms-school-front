@@ -1,4 +1,3 @@
-import { useState } from 'react'
 import './App.css'
 import {
   Routes,
@@ -22,7 +21,7 @@ function App() {
     <BrowserRouter>
       <AuthContextProvider>
         <Routes>
-          <Route path="/" element={<RequireAuth  ><MainLayout><MainPage /></MainLayout></RequireAuth>} />
+          <Route path="/" element={<RequireAuth><MainLayout><MainPage /></MainLayout></RequireAuth>} />
           <Route path="/students" element={<RequireAuth role={['admin', 'user']} ><MainLayout><StudentsPage /></MainLayout></RequireAuth>} />
           <Route path="/rooms" element={<RequireAuth role={['admin', 'user']}><MainLayout><RoomsPage /></MainLayout></RequireAuth>} />
           <Route path="/students/:id" element={<RequireAuth role={['admin', 'user']}><MainLayout><StudentPage /></MainLayout></RequireAuth>} />
