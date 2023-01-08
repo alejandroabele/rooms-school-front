@@ -34,6 +34,12 @@ Second, install dependencies
 $ npm install
 ```
 
+Run project
+
+```sh
+$ npm run dev
+```
+
 ### Configuring development properties
 
 In the base of the project create the file .local.env
